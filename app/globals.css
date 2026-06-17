@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mesh-purple: #7B2FFF;
+  --mesh-blue:   #2F6FFF;
+  --mesh-cyan:   #00D4FF;
+  --mesh-pink:   #FF2F7B;
+}
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #050510;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+::selection { background: rgba(123,47,255,0.3); color:#fff; }
+
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  position: relative;
+}
+
+.glass-strong {
+  background: rgba(255,255,255,0.09);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  position: relative;
+}
+
+.glass::before, .glass-strong::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #7B2FFF 0%, #2F6FFF 50%, #00D4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #7B2FFF, #2F6FFF);
+  box-shadow: 0 8px 24px rgba(123,47,255,0.45);
+  transition: all 0.2s ease;
+}
+.gradient-btn:hover { box-shadow: 0 12px 32px rgba(123,47,255,0.6); transform: translateY(-1px); }
+.gradient-btn:active { transform: translateY(0); box-shadow: 0 4px 16px rgba(123,47,255,0.4); }
+.gradient-btn:disabled { transform: none; box-shadow: none; }
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes pulse-glow { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
+@keyframes slide-up { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fade-in { from{opacity:0} to{opacity:1} }
+@keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 40%{transform:translateX(8px)} 60%{transform:translateX(-5px)} 80%{transform:translateX(5px)} }
+@keyframes orb-drift-1 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-20px) scale(1.04)} 66%{transform:translate(-20px,15px) scale(0.96)} }
+@keyframes orb-drift-2 { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-25px,20px) scale(1.03)} 66%{transform:translate(15px,-25px) scale(0.97)} }
+
+.animate-float      { animation: float 6s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin-slow 8s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-up   { animation: slide-up 0.5s ease-out forwards; }
+.animate-fade-in    { animation: fade-in 0.35s ease-out forwards; }
+.animate-shake      { animation: shake 0.4s ease-in-out; }
+.orb-1 { animation: orb-drift-1 12s ease-in-out infinite; }
+.orb-2 { animation: orb-drift-2 15s ease-in-out infinite; }
+.orb-3 { animation: orb-drift-1 18s ease-in-out infinite reverse; }
+.orb-4 { animation: orb-drift-2 10s ease-in-out infinite; }
