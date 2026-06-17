@@ -120,7 +120,7 @@ Return this exact JSON structure filled with specific, expert, personalized advi
 Make every recommendation highly specific to these stats. Return ONLY the JSON.`
 
     const completion = await groq.chat.completions.create({
-      model: 'llama3-70b-8192',
+      model: 'llama-3.3-70b-versatile',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt },
