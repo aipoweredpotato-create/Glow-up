@@ -100,7 +100,7 @@ export default function QuestionnairePage() {
               {[{label:'AGE',key:'age',placeholder:'25',type:'number'},{label:'WEIGHT (LBS)',key:'weightLbs',placeholder:'175',type:'number'},{label:'BODY FAT %',key:'bodyFat',placeholder:'18',type:'number'}].map(f => (
                 <div key={f.key}>
                   <label className="block text-[10px] tracking-[0.2em] text-white/35 font-semibold mb-1.5">{f.label}</label>
-                  <input type={f.type} placeholder={f.placeholder} value={(form as Record<string, string | number | string[]>)[f.key] as string}
+                  <input type={f.type} placeholder={f.placeholder} value={(form as any)[f.key] as string}
                     onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
                     className="w-full bg-white/[0.07] border border-white/[0.1] rounded-xl px-4 py-3 text-white placeholder:text-white/25 outline-none focus:border-[#7B2FFF]/60 transition-all text-sm" />
                 </div>
